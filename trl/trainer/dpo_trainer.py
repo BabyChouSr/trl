@@ -626,7 +626,7 @@ class DPOTrainer(Trainer):
             )
             self.is_vision_model = False
 
-        if self.is_vision_model:
+        if self.is_vision_model or "phi" in model.config.model_type:
             self.processor = tokenizer
             self.tokenizer = tokenizer.tokenizer  # tokenizer is actually a processor at this point
         else:
